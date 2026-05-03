@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Michroma&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-dark: #050508;
+  --color-card: #0d0d1a;
+  --color-primary: #00fff9;
+  --color-secondary: #ff2d78;
+  --color-accent: #7700ff;
+  --color-surface: #0a0a14;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050508;
+  color: #e0e0ff;
+  font-family: 'Rajdhani', sans-serif;
+  background-image:
+    linear-gradient(rgba(0, 255, 249, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 249, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #050508; }
+::-webkit-scrollbar-thumb { background: #00fff9; border-radius: 0; }
+
+::selection { background: #00fff9; color: #050508; }
