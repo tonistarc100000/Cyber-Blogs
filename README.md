@@ -5,3 +5,6 @@ Token =  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZjQzODJlYTBjODQ4OGQ1NT
 
 Current Passcode and email binded :-
 tonistarc100000@gmail.com , 1234567890
+
+
+render given URL : https://cyber-blogs.onrender.com/
