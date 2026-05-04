@@ -1,7 +1,5 @@
 node_modules
 .env
 dist
-txt
-freeText.txt
-.hintrc
-
+.freeText
+hintrc
