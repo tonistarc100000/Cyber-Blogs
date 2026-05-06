@@ -101,10 +101,55 @@ When you get this string Replace `yourname:<password>` with your Name and Passwo
 
 <h2>Server-Side Files Summery ▶️</h2>
 
-(A) `server/.env`
-The very first file. Before your app does anything — before it connects to MongoDB, before it starts listening for requests — it needs secrets. Your MongoDB password, your JWT secret key, your port number. You never hardcode these inside your actual code because you'll push that code to GitHub and the whole world can see it. So they live here, in a file that never leaves your machine. Every other file in the backend depends on this file existing.
+<h3>(A) server/.env ❓</h3>
+➡️The very first file. Before your app does anything — before it connects to MongoDB, before it starts listening for requests — it needs secrets. Your MongoDB password, your JWT secret key, your port number. You never hardcode these inside your actual code because you'll push that code to GitHub and the whole world can see it. So they live here, in a file that never leaves your machine. Every other file in the backend depends on this file existing.
 
 
-(B) `server/server.js`
-Our First Most Important Brick of our Project , This is the front door of Our entire backend. It's the file Node.js actually runs when you type `npm run dev`. It does four things — loads your .env secrets, connects to MongoDB, registers all your routes, and starts listening on port 5000. Think of it as the manager who opens the restaurant every morning, turns the lights on, and tells the staff where to stand. Every route file plugs into this file.
+<h3>(B) config/db.js ❓</h3>
+
+➡️This file is responsible for establishing a connection between the application and the MongoDB database using Mongoose.
+
+An async function (`connectDB`) is defined to initialize the database connection using the connection string stored in environment variables (`process.env.MONGO_URI`). This ensures sensitive credentials are not hardcoded.
+
+The function uses async/await to handle the connection process and includes error handling to terminate the application if the database connection fails, preventing the server from running in an unstable state.
+
+This connection is initialized once at application startup and enables all subsequent database operations (CRUD) through Mongoose models.
+
+
+<h3>(C) models/Post.js ❓</h3>
+
+➡️This file defines the data structure and validation rules for blog posts using a Mongoose schema.
+
+Although MongoDB is a schema-less database, Mongoose allows us to enforce a structured format at the application level. This helps maintain data consistency, prevent invalid entries, and reduce duplication issues.
+
+The `postSchema` specifies:
+- Field types (e.g., String, Boolean)
+- Required fields (e.g., title, content)
+- Data sanitization (e.g., trimming whitespace)
+- Constraints (e.g., unique slug for each post)
+- Default values (e.g., empty cover image, unpublished status)
+- Automatic timestamps (`createdAt`, `updatedAt`)
+
+The schema is compiled into a Mongoose model (`Post`), which provides an interface to perform CRUD operations on the `posts` collection in MongoDB.
+
+
+
+<h3>(D) controllers/postController.js ❓</h3>
+➡️This file handles the logic for posts. It connects routes with the database.
+
+We import the Post model so we can fetch data from MongoDB.
+
+- getAllPosts → returns all published posts (latest first)
+- getPostBySlug → returns one post using slug from URL
+
+If something goes wrong, it sends proper error responses.
+
+Why needed:
+Keeps routes clean and puts logic in one place.
+
+
+
+
+<h3>(E) server/server.js ❓</h3>
+➡️Our First Most Important Brick of our Project , This is the front door of Our entire backend. It's the file Node.js actually runs when you type `npm run dev`. It does four things — loads your .env secrets, connects to MongoDB, registers all your routes, and starts listening on port 5000. Think of it as the manager who opens the restaurant every morning, turns the lights on, and tells the staff where to stand. Every route file plugs into this file.
 
