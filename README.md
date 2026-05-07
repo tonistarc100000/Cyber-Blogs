@@ -101,11 +101,13 @@ When you get this string Replace `yourname:<password>` with your Name and Passwo
 
 <h2>Server-Side Files Summery ▶️</h2>
 
-<h3>(A) server/.env ❓</h3>
+<h3>Commam Fles For every Server Side Files</h3>
+
+<h4>(A) server/.env ❓</h4>
 ➡️The very first file. Before your app does anything — before it connects to MongoDB, before it starts listening for requests — it needs secrets. Your MongoDB password, your JWT secret key, your port number. You never hardcode these inside your actual code because you'll push that code to GitHub and the whole world can see it. So they live here, in a file that never leaves your machine. Every other file in the backend depends on this file existing.
 
 
-<h3>(B) config/db.js ❓</h3>
+<h4>(B) config/db.js ❓</h4>
 
 ➡️This file is responsible for establishing a connection between the application and the MongoDB database using Mongoose.
 
@@ -116,7 +118,11 @@ The function uses async/await to handle the connection process and includes erro
 This connection is initialized once at application startup and enables all subsequent database operations (CRUD) through Mongoose models.
 
 
-<h3>(C) models/Post.js ❓</h3>
+<h3>Post Routes Creation Summery</h3>
+
+![Post File Creation Path](images/POST_FILES.jpg.png)
+
+<h4>(C) models/Post.js ❓</h4>
 
 ➡️This file defines the data structure and validation rules for blog posts using a Mongoose schema.
 
@@ -134,7 +140,7 @@ The schema is compiled into a Mongoose model (`Post`), which provides an interfa
 
 
 
-<h3>(D) controllers/postController.js ❓</h3>
+<h4>(D) controllers/postController.js ❓</h4>
 ➡️This file handles the logic for posts. It connects routes with the database.
 
 We import the Post model so we can fetch data from MongoDB.
@@ -148,8 +154,25 @@ Why needed:
 Keeps routes clean and puts logic in one place.
 
 
+<h4>(E) routes/postRoutes.js ❓</h4>
+
+➡️ Post routes file handles the API endpoints and connects client requests with their respective controller functions.
+
+This file decides:
+
+which URL route should run
+which controller function should execute
+and which routes need protection middleware before access.
+
+The protect middleware checks JWT token authentication before allowing admin CRUD operations like Create, Update and Delete posts.
+
+Public users can access normal routes like fetching posts, while protected routes require valid admin authorization.
+
+This file basically controls the request flow between Client → Middleware → Controller.
 
 
-<h3>(E) server/server.js ❓</h3>
+
+
+<h4>(XXXX) server/server.js ❓</h4>
 ➡️Our First Most Important Brick of our Project , This is the front door of Our entire backend. It's the file Node.js actually runs when you type `npm run dev`. It does four things — loads your .env secrets, connects to MongoDB, registers all your routes, and starts listening on port 5000. Think of it as the manager who opens the restaurant every morning, turns the lights on, and tells the staff where to stand. Every route file plugs into this file.
 

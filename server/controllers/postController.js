@@ -38,6 +38,8 @@ const createPost = async (req, res) => {
     try {
         const { title, slug, content, excerpt, tags, isPublished, coverImage } = req.body;
 
+
+        // Debunking  Duplicated Slug Posts
         const postExists = await Post.findOne({ slug });
         if (postExists) {
             return res.status(400).json({ success: false, message: 'Slug already exists' });
