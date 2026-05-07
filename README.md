@@ -120,7 +120,7 @@ This connection is initialized once at application startup and enables all subse
 
 <h3>Post Routes Creation Summery</h3>
 
-![Post File Creation Path](images/POST_FILES.jpg.png)
+![Post File Creation Path](images/POST_FILES.png)
 
 <h4>(C) models/Post.js ❓</h4>
 
