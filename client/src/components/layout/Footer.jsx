@@ -92,7 +92,7 @@ const Footer = () => {
       <footer className="footer-root">
         <div className="footer-inner">
           <div>
-            <div className="footer-logo">&lt;DEVFOLIO /&gt;</div>
+            <div className="footer-logo">&lt;CYBER BLOGS&gt;</div>
             <div className="footer-copy">
               © {year} — BUILT WITH <span>MERN STACK</span>
             </div>

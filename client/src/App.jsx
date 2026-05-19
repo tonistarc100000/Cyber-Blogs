@@ -9,6 +9,7 @@ import BlogPost from "./pages/BlogPost";
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
 import PostEditor from "./pages/admin/PostEditor";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <main style={{ minHeight: "100vh" }}>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />

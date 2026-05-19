@@ -149,8 +149,8 @@ const Navbar = () => {
 
       <nav className={`nav-root ${scrolled ? "scrolled" : "top"}`}>
         <div className="nav-inner">
-          <Link to="/" className="nav-logo">
-            &lt;DEVFOLIO /&gt;
+          <Link to="#" className="nav-logo">
+            &lt;CYBER BLOGS /&gt;
           </Link>
 
           <div className="nav-links">

@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const {
-    getAllPosts,
+    getAllPosts,  // Punlic
     getAllPostsAdmin,
-    getPostBySlug,
+    getPostBySlug,  // Punlic
     createPost,
     updatePost,
     deletePost,
